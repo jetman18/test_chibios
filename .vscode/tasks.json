@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Flash ELF via OpenOCD",
+      "type": "shell",
+      "command": "arm-none-eabi-gdb",
+      "args": [
+        "--batch",          
+        "-ex", "target remote localhost:3333",
+        "-ex", "monitor reset halt",
+        "-ex", "load",
+        "-ex", "monitor reset init",
+        "-ex", "quit",
+        "/home/tuannd/ChibiOS/testhal/STM32/STM32F7xx/PWM-ICU/build/ch.elf"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
