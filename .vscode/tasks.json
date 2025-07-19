@@ -2,6 +2,17 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Run OpenOCD",
+      "type": "shell",
+      "command": "openocd",
+      "args": [
+          "-f", "interface/stlink.cfg",
+          "-f", "target/stm32f7x.cfg"
+      ],
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
       "label": "Flash ELF via OpenOCD",
       "type": "shell",
       "command": "arm-none-eabi-gdb",
@@ -12,7 +23,7 @@
         "-ex", "load",
         "-ex", "monitor reset init",
         "-ex", "quit",
-        "/home/tuannd/ChibiOS/testhal/STM32/STM32F7xx/PWM-ICU/build/ch.elf"
+        "/home/tuan/test_chibios/demos/STM32/RT-STM32F767ZI-NUCLEO144/build/ch.elf"
       ],
       "presentation": {
         "echo": true,

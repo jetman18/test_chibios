@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug ChibiOS",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/home/tuannd/ChibiOS/testhal/STM32/STM32F7xx/PWM-ICU/build/ch.elf",
+      "cwd": "/home/tuannd/ChibiOS/testhal/STM32/STM32F7xx/PWM-ICU",
+      "MIMode": "gdb",
+      //"preLaunchTask": "Flash Firmware",
+      "miDebuggerPath": "/opt/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-gdb",
+      "miDebuggerServerAddress": "localhost:3333",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "externalConsole": false,
+      "stopAtEntry": false
+      
+    }
+  ]
+}

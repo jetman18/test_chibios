@@ -44,6 +44,19 @@ static THD_FUNCTION(Thread1, arg) {
   }
 }
 
+
+volatile int k = 0;
+static THD_WORKING_AREA(waThread2, 128);
+static THD_FUNCTION(Thread2, arg) {
+
+  (void)arg;
+  chRegSetThreadName("count");
+  while (true) {
+     k ++;
+     chThdSleepMilliseconds(500);
+  }
+}
+
 /*
  * Application entry point.
  */
@@ -68,6 +81,7 @@ int main(void) {
    * Creates the example thread.
    */
   chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO + 1, Thread1, NULL);
+  chThdCreateStatic(waThread2, sizeof(waThread2), NORMALPRIO + 2, Thread2, NULL);
 
   /*
    * Normal main() thread activity, in this demo it does nothing except

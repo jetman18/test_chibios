@@ -1,26 +1,25 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Debug ChibiOS",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "/home/tuannd/ChibiOS/testhal/STM32/STM32F7xx/PWM-ICU/build/ch.elf",
-      "cwd": "/home/tuannd/ChibiOS/testhal/STM32/STM32F7xx/PWM-ICU",
-      "MIMode": "gdb",
-      //"preLaunchTask": "Flash Firmware",
-      "miDebuggerPath": "/opt/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-gdb",
-      "miDebuggerServerAddress": "localhost:3333",
-      "setupCommands": [
+"version": "0.2.0",
+    "configurations": [
+
         {
-          "description": "Enable pretty-printing",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
+            "name": "HW_DEBUG",
+            "cwd": "/home/tuan/test_chibios/demos/STM32/RT-STM32F767ZI-NUCLEO144",
+            "executable": "/home/tuan/test_chibios/demos/STM32/RT-STM32F767ZI-NUCLEO144/build/ch.elf",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            },
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f7x.cfg"
+            ],
+            //"configFiles": [
+            //    "/home/tuan/test_chibios/demos/STM32/RT-STM32F767ZI-NUCLEO144/openocd.cfg"
+            //]
         }
-      ],
-      "externalConsole": false,
-      "stopAtEntry": false
-      
-    }
-  ]
+    ]
 }
